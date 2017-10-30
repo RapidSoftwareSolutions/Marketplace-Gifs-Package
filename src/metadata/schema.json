@@ -1,0 +1,201 @@
+{
+    "package": "Gifs",
+    "tagline": "Gifs API",
+    "description": "The gifs.com API makes it dead simple to convert and transcode a vast array of media into our HTML5 optimized gifs.com player, a compressed .gif, .webm and .mp4.",
+    "image": "https://logo.clearbit.com/gifs.com",
+    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Gifs-Package",
+    "keywords": [],
+    "accounts": {
+        "domain": "https://gifs.com/",
+        "credentials": [
+            "apiKey"
+        ],
+        "steps": [
+            "Go to your gifs.com API dashboard - https://gifs.com/dashboard/api",
+            "Click generate key"
+        ]
+    },
+    "blocks": [
+        {
+            "name": "importMedia",
+            "description": "Gifs support importing the following file mime types: image/gif, video/mp4, video/webm and you can also link directly to a giphy, imgur, gfycat, streamable, instagram, twitter, facebook, or vine web page and we'll automagically find the best quality file to import.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "source",
+                    "type": "String",
+                    "info": "The source URL of the media to add",
+                    "required": true
+                },
+                {
+                    "name": "title",
+                    "type": "String",
+                    "info": "The title of the media",
+                    "required": false
+                },
+                {
+                    "name": "tags",
+                    "type": "List",
+                    "info": "The tags relating the the media",
+                    "required": false,
+                    "structure": {
+                        "name": "tag",
+                        "type": "String",
+                        "info": "Single tag"
+                    }
+                },
+                {
+                    "name": "nsfw",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "If the media is not safe for work",
+                    "required": false
+                },
+                {
+                    "name": "attributionSite",
+                    "type": "String",
+                    "info": "twitter, reddit, instagram, vine, or a custom URL",
+                    "required": false
+                },
+                {
+                    "name": "attributionUser",
+                    "type": "String",
+                    "info": "Required if isset attributionSite. The username for social media sites",
+                    "required": false
+                },
+                {
+                    "name": "attributionUrl",
+                    "type": "String",
+                    "info": "The url if site != social media",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https://api.gifs.com/media/import",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "source",
+                            "title",
+                            "tags",
+                            "nsfw",
+                            "attribution"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Gifs-API-Key": "{$data['apiKey']}"
+                },
+                "vendorFieldsStructure": [
+                    {
+                        "attribution": {
+                            "site": "{attributionSite}",
+                            "user": "{attributionUser}",
+                            "url": "{attributionUrl}"
+                        }
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "uploadMedia",
+            "description": "You can upload image/gif, video/mp4, and video/webm media.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "file",
+                    "type": "File",
+                    "info": "The file being uploaded.",
+                    "required": true
+                },
+                {
+                    "name": "title",
+                    "type": "String",
+                    "info": "The title of the media",
+                    "required": false
+                },
+                {
+                    "name": "tags",
+                    "type": "List",
+                    "info": "The tags relating the the media",
+                    "required": false,
+                    "structure": {
+                        "name": "tag",
+                        "type": "String",
+                        "info": "Single tag"
+                    }
+                },
+                {
+                    "name": "nsfw",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "If the media is not safe for work",
+                    "required": false
+                },
+                {
+                    "name": "attribution_site",
+                    "type": "String",
+                    "info": "twitter, reddit, instagram, vine, or a custom URL",
+                    "required": false
+                },
+                {
+                    "name": "attribution_user",
+                    "type": "String",
+                    "info": "The username for social media sites",
+                    "required": false
+                },
+                {
+                    "name": "attribution_url",
+                    "type": "String",
+                    "info": "The url if site != social media",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https://api.gifs.com/media/upload",
+                "method": "post",
+                "headers": {
+                    "Gifs-API-Key": "{$data['apiKey']}"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
