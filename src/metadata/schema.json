@@ -50,16 +50,6 @@
                     }
                 },
                 {
-                    "name": "nsfw",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "If the media is not safe for work",
-                    "required": false
-                },
-                {
                     "name": "attributionSite",
                     "type": "String",
                     "info": "twitter, reddit, instagram, vine, or a custom URL",
@@ -74,7 +64,7 @@
                 {
                     "name": "attributionUrl",
                     "type": "String",
-                    "info": "The url if site != social media",
+                    "info": "Required if isset attributionSite. The url if site != social media",
                     "required": false
                 }
             ],
@@ -169,13 +159,13 @@
                 {
                     "name": "attribution_user",
                     "type": "String",
-                    "info": "The username for social media sites",
+                    "info": "Required if isset attributionSite. The username for social media sites",
                     "required": false
                 },
                 {
                     "name": "attribution_url",
                     "type": "String",
-                    "info": "The url if site != social media",
+                    "info": "Required if isset attributionSite. The url if site != social media",
                     "required": false
                 }
             ],

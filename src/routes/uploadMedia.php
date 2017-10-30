@@ -59,21 +59,21 @@ $app->post('/api/Gifs/uploadMedia', function ($request, $response) {
     if(!empty($data['attribution_site'])){
         $requestParams['multipart'][] = [
             'name' => 'attribution_site',
-            'contents' => implode(",",$data['attribution_site'])
+            'contents' => $data['attribution_site']
         ];
     }
 
     if(!empty($data['attribution_user'])){
         $requestParams['multipart'][] = [
             'name' => 'attribution_user',
-            'contents' => implode(",",$data['attribution_user'])
+            'contents' => $data['attribution_user']
         ];
     }
 
     if(!empty($data['attribution_url'])){
         $requestParams['multipart'][] = [
             'name' => 'attribution_url',
-            'contents' => implode(",",$data['attribution_url'])
+            'contents' => $data['attribution_url']
         ];
     }
 

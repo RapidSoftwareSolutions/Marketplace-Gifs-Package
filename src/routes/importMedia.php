@@ -13,9 +13,9 @@ $app->post('/api/Gifs/importMedia', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'apiKey','source'=>'source'];
-    $optionalParams = ['title'=>'title','tags'=>'tags','nsfw'=>'nsfw','attributionUser'=>'attributionUser','attributionUrl'=>'attributionUrl','attributionSite'=>'attributionSite'];
+    $optionalParams = ['title'=>'title','tags'=>'tags','attributionUser'=>'attributionUser','attributionUrl'=>'attributionUrl','attributionSite'=>'attributionSite'];
     $bodyParams = [
-       'json' => ['source','title','tags','nsfw','attribution']
+       'json' => ['source','title','tags','attribution']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
