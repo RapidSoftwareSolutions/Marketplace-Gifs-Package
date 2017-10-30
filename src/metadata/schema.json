@@ -64,7 +64,7 @@
                 {
                     "name": "attributionUrl",
                     "type": "String",
-                    "info": "Required if isset attributionSite. The url if site != social media",
+                    "info": "The url if site != social media",
                     "required": false
                 }
             ],
@@ -165,7 +165,7 @@
                 {
                     "name": "attribution_url",
                     "type": "String",
-                    "info": "Required if isset attributionSite. The url if site != social media",
+                    "info": "The url if site != social media",
                     "required": false
                 }
             ],

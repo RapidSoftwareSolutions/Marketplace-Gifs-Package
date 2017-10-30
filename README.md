@@ -29,7 +29,7 @@ Gifs support importing the following file mime types: image/gif, video/mp4, vide
 | tags           | List       | The tags relating the the media
 | attributionSite| String     | twitter, reddit, instagram, vine, or a custom URL
 | attributionUser| String     | Required if isset attributionSite. The username for social media sites
-| attributionUrl | String     | Required if isset attributionSite. The url if site != social media
+| attributionUrl | String     | The url if site != social media
 
 ## Gifs.uploadMedia
 You can upload image/gif, video/mp4, and video/webm media.
@@ -43,5 +43,5 @@ You can upload image/gif, video/mp4, and video/webm media.
 | nsfw            | Select     | If the media is not safe for work
 | attribution_site| String     | twitter, reddit, instagram, vine, or a custom URL
 | attribution_user| String     | Required if isset attributionSite. The username for social media sites
-| attribution_url | String     | Required if isset attributionSite. The url if site != social media
+| attribution_url | String     | The url if site != social media
 
